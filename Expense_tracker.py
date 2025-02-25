@@ -64,6 +64,7 @@ def expense_tracker():
                     print(f"The total expenses are {total}")
             
             case "4":
+                print("Goodbye") 
                 return expenses
 	
                 break
