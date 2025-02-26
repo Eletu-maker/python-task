@@ -1,14 +1,14 @@
-
+ 
 def add_expense():
     expense = {"date": "", "description": "", "amount": 0}
     
     date = input("Enter the date (YYYY-MM-DD): ")
     expense["date"] = date
     
-    expense["description"] = input("Enter the description: ").strip()
+    expense["description"] = input("Enter the description: ")
     while expense["description"] == "":
         print("You have to input an item")
-        expense["description"] = input("Enter the description: ").strip()
+        expense["description"] = input("Enter the description: ")
     
     while True:
         try:
