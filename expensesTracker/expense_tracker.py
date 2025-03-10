@@ -19,10 +19,24 @@ def add_expense():
                 expense["amount"] = amount
                 break
         except ValueError:
-            print("Invalid input! Please enter a number.")
+            print("Invalid input! Please enter a number.") 
     
     print("Expense added successfully!")
     return expense
+
+def pick_option():
+    option = input("Enter your choice: ")
+    while option not in ["1", "2", "3", "4"]:
+        print("Invalid response")
+        option = input("Enter your choice: ")
+    return option
+
+
+def get_total(number):
+    if number == 0:
+        return "No record made yet"
+    else:
+        return f"The total expenses are {number}"
 
 def expense_tracker():
     expenses = []
@@ -38,10 +52,7 @@ def expense_tracker():
 4. Exit
 """)
         
-        option = input("Enter your choice: ")
-        while option not in ["1", "2", "3", "4"]:
-            print("Invalid response")
-            option = input("Enter your choice: ")
+        option = pick_option()
         
         match option:
             case "1":
@@ -58,14 +69,12 @@ def expense_tracker():
                         print(f"{value['date']}          {value['description']}                   {value['amount']}")
             
             case "3":
-                if total == 0:
-                    print("No record made yet")
-                else:
-                    print(f"The total expenses are {total}")
+                ans = get_total(total)
+                print(ans)
             
             case "4":
                 print("Goodbye") 
-                return expenses
+                
 	
                 break
 

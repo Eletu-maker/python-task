@@ -29,30 +29,9 @@ System.out.println("""
 4. Exist
 """);
 
+	option= getOption();
+            			
 
-            System.out.print("Enter your choice: ");
-	   while(!validInput){
-            try {
-	
-               option = entries.nextInt();
-	
-			if( option <= 0 || option > 4 ){
-		 System.out.println("Unacceptable value: please enter option number.");
-		System.out.print("Enter your choice: ");
-		  option = entries.nextInt();
-} else{
-validInput= true;
-}
-                
-            } catch (InputMismatchException e) {
-                System.out.println("Unacceptable value: please enter a valid number.");
-                entries.next();
-            }
-        }
-
-validInput= false;
-	
-		entries.nextLine();
 
 	
 switch (option){
@@ -160,7 +139,7 @@ System.out.print("Enter the date(YYYY-MM-DD): ");
 }
 
 }
-
+	
 }
 
 public static String descriptionExpenses(){
@@ -194,4 +173,30 @@ while(true){
 	
 }
 
+public static int getOption(){
+Scanner entries = new Scanner(System.in);
+
+int option =0;
+	while(true){
+ try{
+ System.out.print("Enter your choice: ");
+option = entries.nextInt();
+while( option <= 0 || option > 4 ){
+ System.out.println("Unacceptable value: please enter option number.");
+System.out.print("Enter your choice: ");
+ option = entries.nextInt();
+} 
+return option;
+
+} catch (InputMismatchException e) {
+System.out.println("Unacceptable value: please enter a valid number.");
+entries.next();
+ }
+
+
 }
+}
+
+
+}
+
